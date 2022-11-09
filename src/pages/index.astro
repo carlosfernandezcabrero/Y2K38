@@ -1,0 +1,115 @@
+---
+import Layout from 'layouts/Layout.astro'
+import { Image } from '@astrojs/image/components'
+import LibraryBook from 'svg/library-book.astro'
+import Countdown from 'components/countdown.svelte'
+import Footer from 'components/footer.astro'
+import Header from 'components/header.astro'
+import SectionWrapper from 'components/section-wrapper.astro'
+import TitleWrapper from 'components/title-wrapper.astro'
+---
+
+<Layout>
+  <Header />
+
+  <main role="main" class="mt-24">
+    <Countdown client:load />
+
+    <section class="mt-[200px]">
+      <TitleWrapper text="¿Que es el problema del año 2038? (Y2K38)" />
+
+      <div class="flex flex-col items-center gap-y-12">
+        <Image
+          src="/images/terminal.webp"
+          alt="linux logo"
+          width={220}
+          height={220}
+          format="webp"
+        />
+        <div class="max-w-prose flex flex-col gap-y-6">
+          <p>
+            El problema afecta a los programas que usen la representación del
+            tiempo basada en el sistema POSIX (Tiempo Unix), que se basa en
+            contar el número de segundos transcurridos desde la noche del 1 de
+            enero de 1970 a las 00:00:00.
+          </p>
+          <p>
+            Esta representación es un estándar de facto en los sistemas tipo
+            Unix y también en los programas escritos para muchos otros sistemas
+            operativos debido al gran alcance del lenguaje de programación C. En
+            la mayoría de sistemas de 32 bits, el tipo de dato time_t usado para
+            guardar el contador de segundos es un entero de 32 bits con signo,
+            es decir, que puede representar un rango de números entre
+            -2.147.483.648 y 2.147.483.647, por lo que el último segundo
+            representable con este formato será a las 03:14:07 UTC del 19 de
+            enero de 2038. Un segundo después, el contador se desbordará y
+            saltará al valor -2.147.483.648, que causará el fallo de programas
+            que interpretarán el tiempo como que están en 1901.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <SectionWrapper>
+      <TitleWrapper text="Simulacion" />
+
+      <figure class="box">
+        <img
+          src="/gifs/Year_2038_problem.gif"
+          alt="Efecto 2038 simulacion"
+          width={400}
+          height={400}
+          class="mx-auto"
+        />
+        <figcaption class="text-center mt-4 text-lg">
+          De <a
+            href="//commons.wikimedia.org/wiki/User:Monaneko"
+            class="as-link"
+          >
+            Monaneko
+          </a> - <span class="int-own-work" lang="es">Trabajo propio</span>,
+          Dominio público,
+          <a
+            href="https://commons.wikimedia.org/w/index.php?curid=1711901"
+            class="as-link"
+          >
+            Enlace
+          </a>
+        </figcaption>
+      </figure>
+    </SectionWrapper>
+
+    <SectionWrapper>
+      <TitleWrapper text="🔗 Fuentes de datos y enlaces de interés" />
+
+      <div
+        class="max-w-prose mx-auto flex flex-col items-center gap-y-12 md:flex-row md:gap-x-16 md:items-start"
+      >
+        <LibraryBook />
+        <ul class="list-disc ml-[25px]">
+          <li>
+            <a
+              href="https://es.wikipedia.org/wiki/Problema_del_a%C3%B1o_2038"
+              class="as-link"
+            >
+              Wikipedia
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/g-kvrPebPDk" class="as-link">
+              Entrevista de Jordi Wild a Eduardo Sáenz de Cabezón
+            </a>
+          </li>
+        </ul>
+      </div>
+    </SectionWrapper>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  h2 {
+    color: #001e63;
+  }
+</style>
