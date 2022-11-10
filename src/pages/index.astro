@@ -7,6 +7,7 @@ import Footer from 'components/footer.astro'
 import Header from 'components/header.astro'
 import SectionWrapper from 'components/section-wrapper.astro'
 import TitleWrapper from 'components/title-wrapper.astro'
+import LinksAndSources from 'components/links-and-sources.astro'
 ---
 
 <Layout>
@@ -80,31 +81,7 @@ import TitleWrapper from 'components/title-wrapper.astro'
         </figcaption>
       </figure>
     </SectionWrapper>
-
-    <SectionWrapper>
-      <TitleWrapper text="🔗 Fuentes de datos y enlaces de interés" />
-
-      <div
-        class="max-w-prose mx-auto flex flex-col items-center gap-y-12 md:flex-row md:gap-x-16 md:items-start"
-      >
-        <LibraryBook />
-        <ul class="list-disc ml-[25px]">
-          <li>
-            <a
-              href="https://es.wikipedia.org/wiki/Problema_del_a%C3%B1o_2038"
-              class="as-link"
-            >
-              Wikipedia
-            </a>
-          </li>
-          <li>
-            <a href="https://youtu.be/g-kvrPebPDk" class="as-link">
-              Entrevista de Jordi Wild a Eduardo Sáenz de Cabezón
-            </a>
-          </li>
-        </ul>
-      </div>
-    </SectionWrapper>
+    <LinksAndSources />
   </main>
 
   <Footer />

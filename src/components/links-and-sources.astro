@@ -1,0 +1,69 @@
+---
+import LibraryBook from 'svg/library-book.astro'
+import SectionWrapper from './section-wrapper.astro'
+import TitleWrapper from './title-wrapper.astro'
+
+const links = [
+  {
+    label: 'Wikipedia',
+    href: 'https://es.wikipedia.org/wiki/Problema_del_a%C3%B1o_2038'
+  },
+  {
+    label: 'Entrevista de Jordi Wild a Eduardo Sáenz de Cabezón',
+    href: 'https://youtu.be/g-kvrPebPDk'
+  },
+  {
+    label: 'El efecto 2038 | La red de Mario',
+    href: 'https://youtu.be/aGUSR2GMWdc'
+  },
+  {
+    label: '¿Qué es POSIX? Conceptos fundamentales',
+    href: 'https://blog.carreralinux.com.ar/2018/02/posix-conceptos-fundamentales/'
+  },
+  {
+    label:
+      '¿Qué es POSIX? ¿Por qué es importante para los usuarios de Linux/UNIX?',
+    href: 'https://websetnet.net/es/what-is-posix-why-does-it-matter-to-linux-unix-users/'
+  }
+]
+---
+
+<SectionWrapper>
+  <TitleWrapper text="🔗 Fuentes de datos y enlaces de interés" />
+
+  <div
+    class="max-w-[70ch] mx-auto flex flex-col items-center gap-y-12 md:flex-row md:gap-x-16 md:items-start"
+  >
+    <LibraryBook />
+    <ul class="flex flex-col gap-y-5">
+      {
+        links.map(({ label, href }) => (
+          <li class="flex items-center gap-x-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11" />
+              <line x1="8" y1="8" x2="12" y2="8" />
+              <line x1="8" y1="12" x2="12" y2="12" />
+              <line x1="8" y1="16" x2="12" y2="16" />
+            </svg>
+            <span class="flex-1">
+              <a href={href} class="as-link">
+                {label}
+              </a>
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</SectionWrapper>
