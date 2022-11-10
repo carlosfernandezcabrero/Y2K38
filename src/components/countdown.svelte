@@ -12,7 +12,7 @@
   timer.subscribe((value) => (timerValue = value))
 </script>
 
-<section class="flex items-center justify-center flex-wrap gap-x-20 gap-y-14">
+<section class="flex items-center justify-center flex-wrap gap-x-16 gap-y-14">
   <DateTile label="Años" value={timerValue[0]} />
   <DateTile label="Meses" value={timerValue[1]} />
   <DateTile label="Dias" value={timerValue[2]} />

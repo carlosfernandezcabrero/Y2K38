@@ -10,7 +10,7 @@
 
 <style>
   div {
-    padding-inline: 15px;
+    padding-inline: 20px;
     padding-block: 15px;
   }
 
